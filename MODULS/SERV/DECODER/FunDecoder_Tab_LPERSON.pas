@@ -1,0 +1,53 @@
+{******************************************************************************}
+{***************           Œœ≈–¿÷»» — “¿¡À»÷¿Ã» ”ƒ           ******************}
+{***************               ﬁ–»ƒ»◊≈— »≈ À»÷¿              ******************}
+{******************************************************************************}
+
+
+{==============================================================================}
+{===========  ‘”Õ ÷»ﬂ ƒ≈ Œƒ≈–¿: œŒÀÕŒ≈ Õ¿»Ã≈ÕŒ¬¿Õ»≈ Œ–√¿Õ»«¿÷»»  ==============}
+{==============================================================================}
+function TDECOD.NameLP(const S: String): String;
+begin
+    Result:='';
+    If (S='»') or (S='')
+             then Result:=PUD^.FieldByName(LPERSON_NAME).AsString    else
+    If S='–' then Result:=PUD^.FieldByName(LPERSON_NAME_RP).AsString else
+    If S='ƒ' then Result:=PUD^.FieldByName(LPERSON_NAME_DP).AsString else
+    If S='¬' then Result:=PUD^.FieldByName(LPERSON_NAME_VP).AsString else
+    If S='“' then Result:=PUD^.FieldByName(LPERSON_NAME_TP).AsString else
+    If S='œ' then Result:=PUD^.FieldByName(LPERSON_NAME_PP).AsString;
+
+    If Result='' then Result:=PUD^.FieldByName(LPERSON_NAME).AsString;
+    If Result='' then Result:='_________________________________________';
+end;
+
+
+{==============================================================================}
+{=========  ‘”Õ ÷»ﬂ ƒ≈ Œƒ≈–¿: —Œ –¿Ÿ≈ÕÕŒ≈ Õ¿»Ã≈ÕŒ¬¿Õ»≈ Œ–√¿Õ»«¿÷»»  ===========}
+{==============================================================================}
+function TDECOD.NameShortLP(const S: String): String;
+var SVal: String;
+begin
+    {»ÌËˆË‡ÎËÁ‡ˆËˇ}
+    Result := '';
+    SVal   := PUD^.FieldByName(LPERSON_NAME_SHORT).AsString;
+    If (S='»') or (S='') then Result:=SVal else Result:=PadegAUTO(S, SVal);
+    If Result='' then Result:=SVal;
+    If Result='' then Result:='_____________________________';
+end;
+
+
+{==============================================================================}
+{==============  ‘”Õ ÷»ﬂ: ‘¿Ã»À»ﬂ, »Ãﬂ, Œ“◊≈—“¬Œ –” Œ¬Œƒ»“≈Àﬂ  ================}
+{==============================================================================}
+function TDECOD.FFIOSherifLP(const S: String): String;
+var SVal: String;
+begin
+    {»ÌËˆË‡ÎËÁ‡ˆËˇ}
+    Result := '';
+    SVal   := PUD^.FieldByName(LPERSON_BOSS).AsString;
+    If (S='»') or (S='') then Result:=SVal else Result:=PadegAUTO(S, SVal);
+    If Result='' then Result:=SVal;
+    If Result='' then Result:='_________________________________________';
+end;

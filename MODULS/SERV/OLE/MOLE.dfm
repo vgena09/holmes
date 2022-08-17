@@ -1,0 +1,42 @@
+object FOLE: TFOLE
+  Left = 0
+  Top = 0
+  Caption = 'FOLE'
+  ClientHeight = 243
+  ClientWidth = 472
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ole: TOleContainer
+    Left = 0
+    Top = 0
+    Width = 472
+    Height = 243
+    AllowInPlace = False
+    AllowActiveDoc = False
+    AutoActivate = aaManual
+    AutoVerbMenu = False
+    Align = alClient
+    Caption = 'Ole'
+    Ctl3D = False
+    ParentCtl3D = False
+    SizeMode = smScale
+    TabOrder = 0
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = TimerTimer
+    Left = 72
+    Top = 48
+  end
+end
